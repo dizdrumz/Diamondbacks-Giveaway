@@ -1,5 +1,5 @@
 import './style.css';
-import { parseInstagramComments, processParticipants, type Participant } from './apify';
+import { parseInstagramComments, type Participant } from './apify';
 import { buildTicketPool, pickWinner, runSlotAnimation } from './raffle';
 import { launchConfetti, stopConfetti } from './confetti';
 
