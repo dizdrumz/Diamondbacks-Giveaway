@@ -135,7 +135,7 @@ body::before {
 .header__logo {
   height: auto;
   width: 90%;
-  max-width: 450px;
+  max-width: 360px;
   display: block;
   margin: 0 auto;
   animation: float 6s ease-in-out infinite;
@@ -164,7 +164,7 @@ body::before {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 0.9;
-  margin-top: -190px;
+  margin-top: -145px;
   margin-bottom: var(--space-xs);
   filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.5));
   position: relative;

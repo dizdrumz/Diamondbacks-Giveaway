@@ -1,5 +1,5 @@
 import './style.css';
-import { parseInstagramComments, getDemoComments, processParticipants, type Participant } from './apify';
+import { parseInstagramComments, processParticipants, type Participant } from './apify';
 import { buildTicketPool, pickWinner, runSlotAnimation } from './raffle';
 import { launchConfetti, stopConfetti } from './confetti';
 
@@ -121,16 +121,12 @@ Responder
       <button id="btn-parse" class="btn btn--primary btn--large">
         🚀 Extraer Participantes
       </button>
-      <button id="btn-demo" class="btn btn--secondary">
-        🎮 Modo Demo
-      </button>
     </div>
     <div id="error-container"></div>
   `;
 
   setTimeout(() => {
     document.getElementById('btn-parse')?.addEventListener('click', handleParseComments);
-    document.getElementById('btn-demo')?.addEventListener('click', handleDemoMode);
   });
 
   return section;
@@ -463,18 +459,6 @@ function handleParseComments(): void {
   }
 }
 
-function handleDemoMode(): void {
-  state = 'loading';
-  render();
-
-  setTimeout(() => {
-    const comments = getDemoComments();
-    participants = processParticipants(comments);
-    currentRound = 1;
-    state = 'ready';
-    render();
-  }, 1200);
-}
 
 function handleStartRaffle(): void {
   const eligible = getEligibleParticipants();
