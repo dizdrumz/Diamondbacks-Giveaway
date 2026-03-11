@@ -83,7 +83,7 @@ function render(): void {
 function renderHeader(): HTMLElement {
   const header = el('header', 'header');
   header.innerHTML = `
-    <img src="/snake-logo.png" alt="Diamondbacks Logo" class="header__logo" />
+    <img src="${import.meta.env.BASE_URL}snake-logo.png" alt="Diamondbacks Logo" class="header__logo" />
     <h1 class="header__title">GIVEAWAY</h1>
     <p class="header__subtitle">MÁS DE 12000 EN PREMIOS</p>
   `;
