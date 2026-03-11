@@ -183,7 +183,7 @@ async function graphFetch<T>(endpoint: string, accessToken: string): Promise<T> 
         ? path
         : `${path}${separator}access_token=${accessToken}`;
 
-    const res = await fetch(`/graph-api/${GRAPH_API_VERSION}${urlWithToken}`);
+    const res = await fetch(`https://graph.facebook.com/${GRAPH_API_VERSION}${urlWithToken}`);
 
     if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));

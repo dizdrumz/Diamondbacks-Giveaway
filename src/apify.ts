@@ -26,7 +26,7 @@ const ACTOR_ID = 'apify~instagram-comment-scraper';
 export async function fetchComments(postUrl: string, apiToken: string): Promise<Comment[]> {
   // Start actor run
   const startRes = await fetch(
-    `/apify-api/v2/acts/${ACTOR_ID}/runs?token=${apiToken}`,
+    `https://api.apify.com/v2/acts/${ACTOR_ID}/runs?token=${apiToken}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -50,7 +50,7 @@ export async function fetchComments(postUrl: string, apiToken: string): Promise<
   while (status === 'RUNNING' || status === 'READY') {
     await sleep(3000);
     const pollRes = await fetch(
-      `/apify-api/v2/actor-runs/${runId}?token=${apiToken}`
+      `https://api.apify.com/v2/actor-runs/${runId}?token=${apiToken}`
     );
     const pollData = await pollRes.json();
     status = pollData.data.status;
@@ -62,7 +62,7 @@ export async function fetchComments(postUrl: string, apiToken: string): Promise<
 
   // Fetch results from default dataset
   const datasetRes = await fetch(
-    `/apify-api/v2/actor-runs/${runId}/dataset/items?token=${apiToken}`
+    `https://api.apify.com/v2/actor-runs/${runId}/dataset/items?token=${apiToken}`
   );
 
   if (!datasetRes.ok) {
